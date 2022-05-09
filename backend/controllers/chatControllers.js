@@ -165,6 +165,21 @@ const removeFromGroup = asyncHandler(async (req, res) => {
 	}
 });
 
+const removeChat = asyncHandler(async (req, res) => {
+	const { chatId } = req.body;
+
+	const removedChat = await Chat.findByIdAndDelete(chatId);
+
+	if (!removedChat) {
+		res.status(404);
+		throw new Error('Chat Not Found');
+	} else {
+		console.log('controll removedChat', removedChat);
+
+		res.json(removedChat);
+	}
+});
+
 module.exports = {
 	accessChat,
 	fetchChats,
@@ -172,4 +187,5 @@ module.exports = {
 	renameGroup,
 	addToGroup,
 	removeFromGroup,
+	removeChat,
 };

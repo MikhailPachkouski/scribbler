@@ -11,12 +11,15 @@ import {
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { ChatState } from '../../Context/ChatProvider';
 
 const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [show, setShow] = useState(false);
 	const [loading, setLoading] = useState(false);
+
+	const { chats, setChats, fetchAgain, setFetchAgain } = ChatState();
 
 	const history = useHistory();
 
@@ -54,10 +57,12 @@ const Login = () => {
 				{ email, password },
 				config
 			);
-
+			
+			await setChats([])
 			localStorage.setItem('userInfo', JSON.stringify(data));
 			setLoading(false);
 			history.push('/chats');
+			await setFetchAgain(!fetchAgain)
 			toast({
 				title: 'Login Successful',
 				status: 'success',

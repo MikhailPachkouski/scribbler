@@ -21,8 +21,8 @@ import animationData from './typing.json';
 
 import io from 'socket.io-client';
 
-const ENDPOINT = 'https://scribbler-mern-pmv.herokuapp.com/';
-// const ENDPOINT = 'http://localhost:5000';
+// const ENDPOINT = 'https://scribbler-mern-pmv.herokuapp.com/';
+const ENDPOINT = 'http://localhost:5000';
 let socket, selectedChatCompare;
 
 const SingleChat = () => {
@@ -39,7 +39,7 @@ const SingleChat = () => {
 	} = ChatState();
 	const [messages, setMessages] = useState([]);
 	const [loading, setLoading] = useState(false);
-	const [newMessage, setNewMessage] = useState();
+	const [newMessage, setNewMessage] = useState("");
 	const [socketConnected, setSocketConnected] = useState(false);
 	const [typing, setTyping] = useState(false);
 	const [isTyping, setIsTyping] = useState(false);
@@ -202,7 +202,7 @@ const SingleChat = () => {
 						{!selectedChat.isGroupChat ? (
 							<>
 								{getSender(user, selectedChat.users)}
-								<ProfileModal user={selectedChat.users[1]} chat={selectedChat} setChat={setSelectedChat} chats={chats} setChats={setChats}/>
+								<ProfileModal user2={selectedChat.users[1]} chat={selectedChat} setChat={setSelectedChat} chats={chats} setChats={setChats}/>
 							</>
 						) : (
 							<>

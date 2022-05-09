@@ -54,6 +54,8 @@ const SideDrawer = () => {
 	const logoutHandler = () => {
 		localStorage.removeItem('userInfo');
 		history.push('/');
+		setSelectedChat('');
+		setChats()
 	};
 
 	const handleSearch = async () => {
@@ -190,7 +192,7 @@ const SideDrawer = () => {
 							></Avatar>
 						</MenuButton>
 						<MenuList>
-							<ProfileModal user={user}>
+							<ProfileModal user2={user}>
 								<MenuItem>My Profile</MenuItem>
 							</ProfileModal>
 							<MenuDivider />
