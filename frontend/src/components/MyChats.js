@@ -52,6 +52,7 @@ const MyChats = () => {
 			p={3}
 			bg={'white'}
 			w={{ base: '100%', md: '31%' }}
+			h={'87vh'}
 			borderRadius={'lg'}
 			borderWidth={'1px'}
 		>

@@ -97,6 +97,7 @@ const ProfileModal = ({ user2, chat, setChat, chats, setChats, children }) => {
 							boxSize={'150px'}
 							src={user2.pic}
 							name={user2.name}
+							p={2}
 						/>
 						<Text
 							fontSize={{ base: '28px', md: '30px' }}

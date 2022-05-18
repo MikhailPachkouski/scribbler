@@ -19,8 +19,6 @@ const ChatPage = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [history]);
 
-	console.log('chatpage user', user);
-
 	return (
 		<div style={{ width: '100%' }}>
 			{user && <SideDrawer />}
